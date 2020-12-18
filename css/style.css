@@ -23,18 +23,18 @@ body {
     cursor: pointer;
 }
 
-.col.red {
+.col.rouge {
     background-color: red;
 }
 
-.col.yellow {
+.col.jaune {
     background-color: yellow;
 }
 
-.col.pred {
+.col.prouge {
     background-color: darkred;
 }
 
-.col.pyellow {
+.col.pjaune {
     background-color: darkgoldenrod;
 }
