@@ -9,7 +9,8 @@ class P4{
         this.plateau();
         this.affiche();
         this.gagnant();
-        
+        this.points();
+
     }
 
 
@@ -28,7 +29,12 @@ class P4{
         }
     }
 
-
+    points(){
+        const $row =$('<div>').addClass('row');
+        const compteurptsrouge = $('<div>').addClass('cptrouge');
+        $row.append(compteurptsrouge);
+        
+    }
     
 
     affiche(){
@@ -87,26 +93,23 @@ class P4{
 
             //Affiche un texte qui annonce le vainqueur 
             if (winner){
-                window.alert(`les ${winner} ont gagné`);
+                
                 console.log(`${winner}`);
                 if (winner=== 'rouge'){
                     that.compteurrouge++;
-                    console.log(`${that.compteurrouge}`);
+                    window.alert(`les ${winner} ont gagné et ont ${that.compteurrouge} points et les jaunes ont ${that.compteurjaune} points`);
+                    
+                    
                 }
                 else{
                     that.compteurjaune++;
-                    console.log(`${that.compteurjaune}`);
+                    window.alert(`les ${winner} ont gagné et ont ${that.compteurjaune} points et les rouges ont ${that.compteurrouge} points`);
+                    
                 }
                 $('#restart').css('visibility',"visible");
             }
 
-            // Demande au joueur s'il veut rejouer
-            if (winner) {
-                if (window.confirm("La partie est terminer !\n\nL'heure de la revanche ?")) {
-                    location.reload();
-                  }
-                  return;
-                }
+            
         });
     }
 

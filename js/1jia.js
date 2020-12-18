@@ -79,7 +79,7 @@ class P4{
                 that.compteurrouge++;
                 console.log(`${winner}`);
                 console.log(`${that.compteurrouge}`);
-                window.alert(`les ${winner} ont gagné`);
+                window.alert(`les ${winner} ont gagné et ont ${that.compteurrouge} points et les jaunes ont ${that.compteurjaune} points`);
                 $('#restart').css('visibility',"visible");
             }
 
@@ -101,8 +101,7 @@ class P4{
                 
                 alea = Math.floor(Math.random()*7);
                 if (casePossible(alea)){
-                    $last2 = casePossible(alea);
-                    console.log('jaune')
+                    $last2 = casePossible(alea);                    
                     $last2.addClass(`jaune`).removeClass(`empty pjaune`).data('player',`jaune`);
                 }
             }
@@ -112,8 +111,7 @@ class P4{
                 
                 
                 that.compteurjaune++;
-                console.log(`${winner2}`);
-                console.log(`${that.compteurjaune}`);
+                window.alert(`les ${winner2} ont gagné et ont ${that.compteurjaune} points et les rouges ont ${that.compteurrouge} points`);
                 $('#restart').css('visibility',"visible");
             }
             that.player=(that.player==='rouge')? 'jaune' :'rouge';

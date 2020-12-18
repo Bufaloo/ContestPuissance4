@@ -4,8 +4,11 @@ $('#game').ready(function(){
     $('#restart').on('click',function(){
         $('#game').empty();
         p4.plateau();
+        p4.points();
         $('#restart').css('visibility','hidden');
+
     })
 
     
 });
+

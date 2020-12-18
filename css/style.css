@@ -1,26 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:wght@400;700&family=Quicksand:wght@400;700&display=swap');
+
 body {
     text-align: center;
     background-image: url(background/cjd8r6t8v3e41.jpg);
+    background-size: cover;
+    color: #232323;
+    font-family: 'Lobster two', cursive;
+
 }
 
-h1,h3,#signature,#ask{
-    font-family: 'Lobster', cursive;
+.container {
+    width: 80%;
+    margin: 0 auto;
+
+
 }
 
-h3{
-    font-weight: 200;
+h1 {
+    font-size: 50px;
 }
 
-#signature{
-    margin-top: 39%;
-    text-align : right;
-    color:black;
+h3,
+h2 {
+    font-size: 25px;
+    margin-bottom: 100px;
+}
+
+#signature {
+    font-family: 'Quicksand', sans-serif;
+}
+
+#signature {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    text-align: right;
+    color: lightgrey;
 }
 
 #game {
+    margin-bottom: 5%;
     display: inline-block;
-    margin-top: 7%;
-    text-align: center;
     background-color: grey;
     border-radius: 4%;
 }
@@ -47,14 +68,45 @@ h3{
     background-color: yellow;
 }
 
-<<<<<<< HEAD
-.col.prouge{
-=======
+
 .col.prouge {
->>>>>>> main
     background-color: darkred;
 }
 
 .col.pjaune {
     background-color: darkgoldenrod;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    width: 47%;
+    margin: 0 auto;
+}
+
+.button {
+    flex: 1;
+    color: whitesmoke;
+    background-color: #232323;
+    padding: 15px;
+    border-radius: 98px;
+    position: relative;
+    box-shadow: 12px 16px 35px 0px rgba(0, 0, 0, 0.30);
+    transition: 0.2s all ease-in-out;
+}
+
+.first {
+    margin-right: 15%;
+}
+
+.button:hover {
+    background-color: darkslategrey;
+    box-shadow: 6px 8px 8px 0px rgba(0, 0, 0, 0.30);
+    cursor: pointer;
 }
