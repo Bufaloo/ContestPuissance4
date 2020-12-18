@@ -85,6 +85,7 @@ class P4{
             that.player=(that.player==='rouge')? 'jaune' :'rouge';
 
 
+            //Affiche un texte qui annonce le vainqueur 
             if (winner){
                 window.alert(`les ${winner} ont gagné`);
                 console.log(`${winner}`);
@@ -98,6 +99,14 @@ class P4{
                 }
                 $('#restart').css('visibility',"visible");
             }
+
+            // Demande au joueur s'il veut rejouer
+            if (winner) {
+                if (window.confirm("La partie est terminer !\n\nL'heure de la revanche ?")) {
+                    location.reload();
+                  }
+                  return;
+                }
         });
     }
 
@@ -150,10 +159,5 @@ class P4{
         }
         return horizontal() || vertical() || diagonalD() || diagonalG();
     }
-
-        // Joueur IA
-
-
-        
-
+    
 }
