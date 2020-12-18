@@ -6,6 +6,9 @@
     <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
     
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+    </style>
     
     <script src="js/puissance4.js"></script>
     <script src="js/main.js"></script>
@@ -15,13 +18,13 @@
 <body>
 
     <h1>Puissance 4</h1>
-    <h3> Qui veux jouer ?</h3>
+    <h3>Qui aura le plus gros cerveau ?</h3>
     <form action="/my-handling-form-page" method="GET">
         <div>
-            <label for="name">Combien de personne veulent jouer ?</label>
+            <label id="ask" for="name">Combien de personnes veulent jouer ?</label>
             <select name="nbPerson" id="nombrepersonne">
-                <option value="">1 joueur contre IA</option>
-                <option value="dog">2 joueurs en local</option>
+                <option value="IA">1 joueur contre IA</option>
+                <option value="local">2 joueurs en local</option>
             </select>
         </div>
 
@@ -29,7 +32,8 @@
 
 
     <div id="game"></div>
-    <button id="restart" style="visibility: hidden;"> Relancer le jeu</button>
     
+    <p id="signature">Ronvel Killian<br>Blessing Arnaud</p>
+
 </body>
 </html>

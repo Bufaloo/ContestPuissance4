@@ -3,10 +3,12 @@ class P4{
         this.col =7;
         this.row =6;
         this.selector=selector;
-        this.player='red';
+        this.player='Rouge';
         this.plateau();
         this.affiche();
         this.gagnant();
+        var nbPointR = 0;
+        var nbPointJ = 0;
     }
 
 
@@ -49,6 +51,7 @@ class P4{
             }
             return null;
         }
+
         // permet de voir la case en ayant la souris sur la colonne
         $jeu.on('mouseenter','.col.empty',function(){
             const $col= $(this).data('col')
@@ -74,14 +77,24 @@ class P4{
             const winner=that.gagnant($last.data('row'),$last.data('col'));
 
             //change de couleur de pion dés que l'un a joué
-            that.player=(that.player==='red')? 'yellow' :'red';
+            that.player=(that.player==='Rouge')? 'Jaune' :'Rouge';
 
-
+            //Affiche un texte qui annonce le vainqueur 
             if (winner){
-                window.alert(`les ${winner} ont gagné`);
-                $('#restart').css('visibility',"visible");
+                window.alert(`Les ${winner} ont gagné !`);
+                
             }
+
+            // Demande au joueur s'il veut rejouer
+            if (winner) {
+                if (window.confirm("La partie est terminer !\n\nL'heure de la revanche ?")) {
+                    location.reload();
+                  }
+                  return;
+                }
         });
+
+            
 
     }
 
@@ -134,4 +147,5 @@ class P4{
         }
         return horizontal() || vertical() || diagonalD() || diagonalG();
     }
+    
 }

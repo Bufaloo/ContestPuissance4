@@ -1,12 +1,29 @@
 body {
     text-align: center;
-    background-color: gray;
+    background-image: url(background/jtdvGo.jpg);
+}
+
+h1,h3,#signature,#ask{
+    font-family: 'Lobster', cursive;
+}
+
+h3{
+    font-weight: 200;
+}
+
+#signature{
+    margin-top: 11%;
+    text-align : right;
+    color:grey;
 }
 
 #game {
     display: inline-block;
+    margin-top: 7%;
     text-align: center;
-    background-color: blue;
+    background-color: grey;
+    opacity: 80%;
+    border-radius: 4%;
 }
 
 .col {
@@ -23,18 +40,18 @@ body {
     cursor: pointer;
 }
 
-.col.red {
+.col.Rouge {
     background-color: red;
 }
 
-.col.yellow {
+.col.Jaune {
     background-color: yellow;
 }
 
-.col.pred {
+.col.pRouge{
     background-color: darkred;
 }
 
-.col.pyellow {
+.col.pJaune {
     background-color: darkgoldenrod;
 }
