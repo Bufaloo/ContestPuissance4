@@ -3,12 +3,13 @@ class P4{
         this.col =7;
         this.row =6;
         this.selector=selector;
-        this.player='Rouge';
+        this.player='rouge';
+        this.compteurjaune=0;
+        this.compteurrouge=0;
         this.plateau();
         this.affiche();
         this.gagnant();
-        var nbPointR = 0;
-        var nbPointJ = 0;
+        
     }
 
 
@@ -73,29 +74,55 @@ class P4{
             const $last = casePossible(col);
             $last.addClass(`${that.player}`).removeClass(`empty p${that.player}`).data('player',`${that.player}`);
 
-            // vérifie si il y a un gagnant
             const winner=that.gagnant($last.data('row'),$last.data('col'));
-
-            //change de couleur de pion dés que l'un a joué
-            that.player=(that.player==='Rouge')? 'Jaune' :'Rouge';
-
-            //Affiche un texte qui annonce le vainqueur 
             if (winner){
-                window.alert(`Les ${winner} ont gagné !`);
-                
+                that.compteurrouge++;
+                console.log(`${winner}`);
+                console.log(`${that.compteurrouge}`);
+                window.alert(`les ${winner} ont gagné`);
+                $('#restart').css('visibility',"visible");
             }
 
-            // Demande au joueur s'il veut rejouer
-            if (winner) {
-                if (window.confirm("La partie est terminer !\n\nL'heure de la revanche ?")) {
-                    location.reload();
-                  }
-                  return;
+            that.player=(that.player==='rouge')? 'jaune' :'rouge';
+
+            // chiffre aléatoire
+            let alea = Math.floor(Math.random()*7);
+
+            // cherche si la case est possible
+            let $last2 = casePossible(alea);
+
+            // remplit le tableau par un pion jaune sur la case choisi précédemment
+            $last2?.addClass(`${that.player}`).removeClass(`empty p${that.player}`).data('player',`${that.player}`);
+
+
+            // si la case ne retourne pas une cellule on boucle pour en trouver une
+           
+            while (casePossible(alea)=== null){
+                
+                alea = Math.floor(Math.random()*7);
+                if (casePossible(alea)){
+                    $last2 = casePossible(alea);
+                    console.log('jaune')
+                    $last2.addClass(`jaune`).removeClass(`empty pjaune`).data('player',`jaune`);
                 }
-        });
+            }
+            const winner2=that.gagnant($last2.data('row'),$last2.data('col'));
+
+            if (winner2){
+                
+                
+                that.compteurjaune++;
+                console.log(`${winner2}`);
+                console.log(`${that.compteurjaune}`);
+                $('#restart').css('visibility',"visible");
+            }
+            that.player=(that.player==='rouge')? 'jaune' :'rouge';
+
+            // vérifie si il y a un gagnant
 
             
-
+            
+        });
     }
 
     gagnant(row,col){
@@ -103,8 +130,11 @@ class P4{
 
         //récupère la cellule
         function $position(i,j){
+
             return $(`.col[data-row='${i}'][data-col='${j}']`)
         }
+
+;
         
         //compte le nombre de pion qu'il y a d'aligné
         function nbPionAligne(direction){
@@ -112,6 +142,7 @@ class P4{
             let i = row + direction.i;
             let j = col+direction.j;
             let $next=$position(i,j);
+
             while(i>=0 && i < that.row && j>=0 && j< that.col && $next.data('player')===that.player){
                 total++;
                 i+= direction.i;
@@ -147,5 +178,10 @@ class P4{
         }
         return horizontal() || vertical() || diagonalD() || diagonalG();
     }
-    
+
+        // Joueur IA
+
+
+        
+
 }
